@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        window.onload=function(){
+            try {
+                var canvasObj = document.getElementById("can");//取得画板
+                var ctx = canvasObj.getContext("2d");//只支持2D绘图
+                ctx.beginPath();//确定开始进行绘图
+                ctx.moveTo(50,50);//确定绘图的开始点，x轴与y轴
+                ctx.lineTo(200,150);//表示划线的结束点
+                ctx.stroke();//表示绘制完成
+            }catch (e){
+                alert("当前的浏览器不支持本页操作");
+            }
+        }
+
+    </script>
+</head>
+<body style="background: black">
+<canvas id="can" width="500px" height="300px" style="background: white">
+    对不起，您的浏览器不支持canvas绘图。
+</canvas>
+</body>
+</html>

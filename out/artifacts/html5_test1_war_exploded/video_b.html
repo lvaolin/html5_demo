@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript" >
+
+        window.onload= function () {
+            var video = document.getElementById("vid");
+            document.getElementById("playBut").addEventListener("click",function(){
+                if(video.paused){
+                    video.play();
+                }
+            },false);
+
+            document.getElementById("pauseBut").addEventListener("click",function(){
+                if(video.played){
+                    video.pause();
+                }
+            },false);
+        }
+
+    </script>
+</head>
+<body>
+<video id="vid" src="video/20151124_200421.mp4" width="50%" height="50%"  ></video>
+
+<input type="button" id="playBut" value="播放">
+<input type="button" id="pauseBut" value="暂停">
+</body>
+</html>

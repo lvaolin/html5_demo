@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript">
+
+        window.onload= function () {
+            document.getElementById("saveBut").addEventListener("click", function () {
+                window.localStorage.setItem("name","吕奥林");
+                window.localStorage.setItem("phone","18910888092");
+            },false);
+
+            document.getElementById("readBut").addEventListener("click", function () {
+                alert("name:"+window.localStorage.getItem("name"));
+                alert("phone:"+window.localStorage.getItem("phone"));
+            },false);
+            document.getElementById("removeBut").addEventListener("click", function () {
+                window.localStorage.removeItem("name");
+            },false);
+            document.getElementById("clearBut").addEventListener("click", function () {
+                window.localStorage.clear();
+            },false);
+
+            document.getElementById("queryBut").addEventListener("click", function () {
+                alert("本地存储数据的个数："+window.localStorage.length);
+                for(var x=0;x<window.localStorage.length;x++){
+                    var key=window.localStorage.key(x);
+                    alert(key+"="+window.localStorage.getItem(key));
+                }
+            },false);
+
+
+        }
+
+    </script>
+</head>
+<body>
+<input type="button" value="存储数据" id="saveBut">
+<input type="button" value="读取数据" id="readBut">
+<input type="button" value="删除一个数据" id="removeBut">
+<input type="button" value="清空数据" id="clearBut">
+
+<input type="button" value="遍历所有本地数据" id="queryBut">
+</body>
+</html>

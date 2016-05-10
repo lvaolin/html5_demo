@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript">
+
+        window.onload= function () {
+            document.getElementById("saveBut").addEventListener("click", function () {
+                window.sessionStorage.setItem("name","吕奥林");
+                window.sessionStorage.setItem("phone","18910888092");
+            },false);
+
+            document.getElementById("readBut").addEventListener("click", function () {
+                alert("name:"+window.sessionStorage.getItem("name"));
+                alert("phone:"+window.sessionStorage.getItem("phone"));
+            },false);
+            document.getElementById("removeBut").addEventListener("click", function () {
+                window.sessionStorage.removeItem("name");
+            },false);
+            document.getElementById("clearBut").addEventListener("click", function () {
+                window.sessionStorage.clear();
+            },false);
+
+
+        }
+
+    </script>
+</head>
+<body>
+<input type="button" value="存储数据" id="saveBut">
+<input type="button" value="读取数据" id="readBut">
+<input type="button" value="删除一个数据" id="removeBut">
+<input type="button" value="清空数据" id="clearBut">
+</body>
+</html>

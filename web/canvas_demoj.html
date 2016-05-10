@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        window.onload=function(){
+
+            try {
+                var img = new Image();
+                img.src="pic/6.png";
+                var canvasObj = document.getElementById("can");//取得画板
+                var ctx = canvasObj.getContext("2d");//只支持2D绘图
+                img.onload=function(){
+                    ctx.drawImage(img,50,50);
+                    ctx.stroke();//表示绘制完成
+                }
+                canvasObj.onmousedown=function(e1){
+                    ctx.moveTo(e1.clientX,e1.clientY);
+                }
+
+                canvasObj.onmousemove=function(e2){
+
+
+                    //重新绘制渲染图片
+                    ctx.drawImage(img,e2.clientX,e2.clientY);
+                    ctx.stroke();
+                }
+
+                canvasObj.onmouseup=function(){
+                    canvasObj.onmousemove=null;
+                    canvasObj.onmouseup=null;
+                }
+
+
+            }catch (e){
+                alert("当前的浏览器不支持本页操作");
+            }
+        }
+
+
+
+    </script>
+</head>
+<body style="background: black">
+<canvas id="can" width="500px" height="300px" style="background: white">
+    对不起，您的浏览器不支持canvas绘图。
+</canvas>
+</body>
+</html>

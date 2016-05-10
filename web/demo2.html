@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style type="text/css">
+        .infocls {
+            background: yellow;
+            color: red;
+        }
+    </style>
+
+    <script type="text/javascript">
+
+        window.onload = function () {
+            var all = document.querySelectorAll("span,p,div");
+            for (var i = 0; i < all.length; i++) {
+                all[i].setAttribute("class", "infocls");
+            }
+        };
+    </script>
+</head>
+<body>
+<span>www.chanjet.com</span>
+
+<p>www.chanjet.com</p>
+
+<div>www.chanjet.com</div>
+<span>www.chanjet.com</span>
+
+<div>www.chanjet.com</div>
+<span>www.chanjet.com</span>
+
+<p>www.chanjet.com</p>
+<span>www.chanjet.com</span>
+
+</body>
+</html>

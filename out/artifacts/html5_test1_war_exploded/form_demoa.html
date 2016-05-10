@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" >
+        window.onload=function(){
+            document.getElementById("age").addEventListener("change",function(){
+                document.getElementById("ageMsg").innerHTML="年龄是："+this.value;
+
+            },false);
+        }
+
+    </script>
+</head>
+<body>
+年龄：<input type="range" min="10" max="30" id="age">
+<div id="ageMsg"></div>
+</body>
+</html>

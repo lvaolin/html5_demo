@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        var websocket = null; //定义websocket处理对象
+        var url = "ws://localhost:80/html5_test1/message2" //定义websocket通讯连接
+        function init() {
+            if ("WebSocket" in window) {//是否支持websocket
+                websocket = new WebSocket(url);//直接实例化
+            } else if ("MozWebSocket" in window) {
+                websocket = new MozWebSocket(url);
+            } else {
+                alert("对不起，您的浏览器不支持WebSocket");
+            }
+        }
+
+
+        window.onload = function () {
+            init();
+            websocket.onopen = function (e) {
+                document.getElementById("contentDiv").innerHTML += "<p>服务器连接成功，准备开始交谈。。。</p>";
+            }
+            websocket.onclose = function (e) {
+                document.getElementById("contentDiv").innerHTML += "<p>交谈通道关闭，本次操作结束。。。</p>";
+            }
+            websocket.onmessage = function (e) {
+                document.getElementById("contentDiv").innerHTML += "<p>回应的数据：" + e.data + "</p>";
+            }
+
+            document.getElementById("sendBut").addEventListener("click", function () {
+                var info = document.getElementById("info").value;
+                websocket.send(info);
+                document.getElementById("contentDiv").innerHTML += "<p>您输入的数据：" + info + "</p>";
+            }, false);
+
+        }
+
+    </script>
+
+
+</head>
+<body>
+<div id="contentDiv" style="height: 300px;overflow:scroll  ;      background: burlywood;">
+
+</div>
+<div>
+    请输入数据：<input id="info" type="text" name="info">
+    <input type="button" id="sendBut" value="信息发送">
+
+</div>
+
+
+</body>
+</html>

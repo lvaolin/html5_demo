@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" >
+
+        window.onload=function(){
+            if(navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(function(postion){
+                    var lo = postion.coords.longitude;
+                    var la = postion.coords.latitude;
+                    alert("经度="+lo+",纬度="+la);
+
+
+                }, function (e) {
+                    alert(e.code);
+                    //e.code=0 表示没有错误
+                    // 1 表示用户的浏览器设置中拒绝取得GPS坐标
+                    //2 表示尝试取出坐标但是失败
+                    //3  超过了预计的处理时间
+                });
+            }else{
+                alert("杯具了，你的浏览器不支持GPS");
+            }
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

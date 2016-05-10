@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        window.onload=function(){
+            try {
+                var canvasObj = document.getElementById("can");//取得画板
+                var ctx = canvasObj.getContext("2d");//只支持2D绘图
+            }catch (e){
+                alert("当前的浏览器不支持本页操作");
+            }
+        }
+
+    </script>
+</head>
+<body>
+<canvas id="can" width="50%" height="50%">
+    对不起，您的浏览器不支持canvas绘图。
+</canvas>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" >
+        window.onload=function(){
+            document.getElementById("birthday").addEventListener("change",function(){
+                document.getElementById("birthdayMsg").innerHTML="生日是："+this.value;
+
+            },false);
+        }
+
+    </script>
+</head>
+<body>
+生日：<input type="date" value="2011-11-11" id="birthday">
+<div id="birthdayMsg"></div>
+</body>
+</html>
